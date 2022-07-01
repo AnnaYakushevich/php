@@ -88,7 +88,7 @@ document.getElementById('btnOver').addEventListener('click', function () {
 
 document.getElementById('btnLess').addEventListener('click', function () {
     if (gameRun){
-        if (minValue === maxValue){
+        if (maxValue === minValue){
             const phraseRandom = Math.round( Math.random()); // случайный выбор фразы для ответа через тернарный оператор
             answerField.innerText = (phraseRandom === 1) ?
                 `Вы загадали неправильное число!\n\u{1F914}` :
@@ -96,7 +96,7 @@ document.getElementById('btnLess').addEventListener('click', function () {
                 `Похоже, что я не смогу угадать..`; 
             gameRun = false;
         } else {
-            maxValue = answerNumber - 1;
+            maxValue = answerNumber;
             answerNumber  = Math.floor((minValue + maxValue) / 2);
             // Преобразование ответа из числа в текстовую форму
             let answerText; 
